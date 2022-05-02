@@ -211,7 +211,7 @@ body {
     }
 
     &--product {
-      flex-grow: 1;
+      width: 90%;
     }
 
     &--track {
@@ -263,18 +263,17 @@ body {
     }
 
     &--number {
+      width: 10%;
       z-index: 5;
-      flex-grow: 1;
 
       h4 {
-        padding: 0 1rem;
+        text-align: center;
       }
 
       .add__icon-group {
         margin-top: 1.5rem;
 
         .icon {
-          padding: 0 1rem;
           width: 100%;
           display: flex;
           height: 4rem;
@@ -427,12 +426,8 @@ body {
 
       &--slide {
         .slide-items {
-          .product-name {
-            width: 25%;
-          }
-
           .product-img {
-            margin-right: 2.7rem;
+            margin-right: 3rem;
           }
         }
       }
@@ -493,10 +488,6 @@ body {
         }
       }
     }
-
-    &__details-section {
-      width: 90%;
-    }
   }
 }
 
@@ -536,7 +527,7 @@ body {
 // 1050px
 @media screen and (max-width: 65.625rem) {
   .container {
-    width: 96%;
+    width: 95%;
   }
 
   .products {
@@ -610,10 +601,6 @@ body {
       }
 
       &--number {
-        h4 {
-          padding-right: 1rem;
-        }
-
         .add__icon-group {
           .icon {
             height: 4.5rem;
@@ -628,26 +615,6 @@ body {
     left: 0;
     bottom: 0;
     transform: translateX(0%) translateY(0%);
-
-    .nav-btn {
-      width: 3.5rem;
-      height: 3.1rem;
-
-      i {
-        font-size: 1.6rem;
-      }
-    }
-
-    .misc-btn-group {
-      margin: 0 2.3rem;
-
-      button {
-        i {
-          font-size: 1.5rem;
-          color: #bbb;
-        }
-      }
-    }
   }
 
   .footer {
@@ -658,6 +625,152 @@ body {
       width: 3.8rem;
       height: 3.8rem;
       padding: 0.1rem;
+    }
+  }
+}
+
+@media screen and (max-width: 43.75rem) {
+  .products {
+    $text-width: 8.6rem;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__img-group {
+      display: grid;
+      place-items: center;
+      width: 100%;
+      height: 530px;
+
+      &--svg {
+        top: -25%;
+        width: 35rem;
+      }
+
+      .products__img-group--images {
+        top: -25%;
+        width: 35rem;
+
+        .image {
+          width: 20rem;
+        }
+
+        .image:nth-child(1) {
+          transform: translate(0rem, 12rem);
+        }
+
+        .image:nth-child(2) {
+          transform: translate(9rem, -7rem);
+        }
+
+        .image:nth-child(3) {
+          transform: translate(-12rem, -8rem);
+        }
+      }
+
+      &--text {
+        left: 35%;
+        width: $text-width;
+      }
+
+      &--text-track {
+        width: calc($text-width * 3);
+
+        h1 {
+          font-size: 55px;
+          padding-right: calc($text-width / 23);
+        }
+      }
+    }
+
+    &__details-section {
+      &--heading {
+        font-size: 42px;
+      }
+
+      &--product {
+        width: 80%;
+      }
+
+      &--slide {
+        .slide-items {
+          height: 4.5rem;
+          padding-left: 0.5rem;
+
+          .product-img {
+            width: 2rem;
+            height: 2rem;
+            margin-right: 1.5rem;
+          }
+        }
+      }
+
+      &--number {
+        width: 20%;
+
+        .add__icon-group {
+          .icon {
+            height: 4.5rem;
+          }
+        }
+      }
+    }
+  }
+
+  .buttons-container {
+    position: relative;
+    margin-top: 3rem;
+    transform: translateX(0%) translateY(0%);
+
+    .nav-btn {
+      width: 3.1rem;
+      height: 3.1rem;
+
+      img {
+        width: 47%;
+      }
+    }
+
+    .misc-btn-group {
+      margin: 0 1rem;
+      padding: 0 1rem;
+
+      button {
+        width: 2rem;
+
+        &:not(:last-child) {
+          margin-right: 1.4rem;
+        }
+      }
+    }
+  }
+
+  .footer {
+    padding: 3rem 2rem 3rem;
+    flex-direction: column-reverse;
+
+    .icons-group {
+      &:not(:last-child) {
+        margin-top: 2.5rem;
+      }
+    }
+
+    .icon {
+      padding: 0.2rem;
+
+      &:not(:last-child) {
+        margin-right: 3.5rem;
+
+        &::before {
+          right: -3.7rem;
+          width: 55%;
+        }
+      }
+
+      img {
+        width: 2.5rem;
+      }
     }
   }
 }

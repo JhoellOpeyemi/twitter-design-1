@@ -188,7 +188,7 @@ body {
   overflow-x: hidden;
 }
 .products__details-section--product {
-  flex-grow: 1;
+  width: 90%;
 }
 .products__details-section--track {
   width: 300%;
@@ -232,17 +232,16 @@ body {
      object-fit: cover;
 }
 .products__details-section--number {
+  width: 10%;
   z-index: 5;
-  flex-grow: 1;
 }
 .products__details-section--number h4 {
-  padding: 0 1rem;
+  text-align: center;
 }
 .products__details-section--number .add__icon-group {
   margin-top: 1.5rem;
 }
 .products__details-section--number .add__icon-group .icon {
-  padding: 0 1rem;
   width: 100%;
   display: flex;
   height: 4rem;
@@ -365,11 +364,8 @@ body {
     width: 100%;
     margin-top: 10rem;
   }
-  .products__details-section--slide .slide-items .product-name {
-    width: 25%;
-  }
   .products__details-section--slide .slide-items .product-img {
-    margin-right: 2.7rem;
+    margin-right: 3rem;
   }
 
   .buttons-container {
@@ -410,9 +406,6 @@ body {
     font-size: 55px;
     padding-right: 0.4782608696rem;
   }
-  .products__details-section {
-    width: 90%;
-  }
 }
 @media screen and (max-width: 71.5625rem) {
   .products__img-group--svg {
@@ -438,7 +431,7 @@ body {
 }
 @media screen and (max-width: 65.625rem) {
   .container {
-    width: 96%;
+    width: 95%;
   }
 
   .products {
@@ -497,9 +490,6 @@ body {
     height: 2rem;
     margin-right: 4.5rem;
   }
-  .products__details-section--number h4 {
-    padding-right: 1rem;
-  }
   .products__details-section--number .add__icon-group .icon {
     height: 4.5rem;
   }
@@ -510,20 +500,6 @@ body {
     bottom: 0;
     transform: translateX(0%) translateY(0%);
   }
-  .buttons-container .nav-btn {
-    width: 3.5rem;
-    height: 3.1rem;
-  }
-  .buttons-container .nav-btn i {
-    font-size: 1.6rem;
-  }
-  .buttons-container .misc-btn-group {
-    margin: 0 2.3rem;
-  }
-  .buttons-container .misc-btn-group button i {
-    font-size: 1.5rem;
-    color: #bbb;
-  }
 
   .footer {
     padding: 4rem 2rem 2rem;
@@ -533,5 +509,114 @@ body {
     width: 3.8rem;
     height: 3.8rem;
     padding: 0.1rem;
+  }
+}
+@media screen and (max-width: 43.75rem) {
+  .products {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .products__img-group {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 530px;
+  }
+  .products__img-group--svg {
+    top: -25%;
+    width: 35rem;
+  }
+  .products__img-group .products__img-group--images {
+    top: -25%;
+    width: 35rem;
+  }
+  .products__img-group .products__img-group--images .image {
+    width: 20rem;
+  }
+  .products__img-group .products__img-group--images .image:nth-child(1) {
+    transform: translate(0rem, 12rem);
+  }
+  .products__img-group .products__img-group--images .image:nth-child(2) {
+    transform: translate(9rem, -7rem);
+  }
+  .products__img-group .products__img-group--images .image:nth-child(3) {
+    transform: translate(-12rem, -8rem);
+  }
+  .products__img-group--text {
+    left: 35%;
+    width: 8.6rem;
+  }
+  .products__img-group--text-track {
+    width: 25.8rem;
+  }
+  .products__img-group--text-track h1 {
+    font-size: 55px;
+    padding-right: 0.3739130435rem;
+  }
+  .products__details-section--heading {
+    font-size: 42px;
+  }
+  .products__details-section--product {
+    width: 80%;
+  }
+  .products__details-section--slide .slide-items {
+    height: 4.5rem;
+    padding-left: 0.5rem;
+  }
+  .products__details-section--slide .slide-items .product-img {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1.5rem;
+  }
+  .products__details-section--number {
+    width: 20%;
+  }
+  .products__details-section--number .add__icon-group .icon {
+    height: 4.5rem;
+  }
+
+  .buttons-container {
+    position: relative;
+    margin-top: 3rem;
+    transform: translateX(0%) translateY(0%);
+  }
+  .buttons-container .nav-btn {
+    width: 3.1rem;
+    height: 3.1rem;
+  }
+  .buttons-container .nav-btn img {
+    width: 47%;
+  }
+  .buttons-container .misc-btn-group {
+    margin: 0 1rem;
+    padding: 0 1rem;
+  }
+  .buttons-container .misc-btn-group button {
+    width: 2rem;
+  }
+  .buttons-container .misc-btn-group button:not(:last-child) {
+    margin-right: 1.4rem;
+  }
+
+  .footer {
+    padding: 3rem 2rem 3rem;
+    flex-direction: column-reverse;
+  }
+  .footer .icons-group:not(:last-child) {
+    margin-top: 2.5rem;
+  }
+  .footer .icon {
+    padding: 0.2rem;
+  }
+  .footer .icon:not(:last-child) {
+    margin-right: 3.5rem;
+  }
+  .footer .icon:not(:last-child)::before {
+    right: -3.7rem;
+    width: 55%;
+  }
+  .footer .icon img {
+    width: 2.5rem;
   }
 }
