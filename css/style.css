@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 .products__details-section .bg-beside-products div:nth-child(odd), .products__details-section--slide .slide-items:nth-child(odd), .products__details-section--number .add__icon-group .icon:nth-child(odd) {
-  background-color: #f7f7f7;
+  background-color: #f4f4f4;
 }
 .products__details-section .bg-beside-products div:nth-child(even), .products__details-section--slide .slide-items:nth-child(even), .products__details-section--number .add__icon-group .icon:nth-child(even) {
-  background-color: #fdfdfd;
+  background-color: #fbfbfb;
 }
 
 *,
@@ -257,7 +257,7 @@ body {
   box-shadow: 6px 10px 18px rgba(0, 0, 0, 0.04);
 }
 .buttons-container .nav-btn {
-  background: #555;
+  background: #333;
   width: 3.3rem;
   height: 3.3rem;
   border-radius: 0.8rem;
@@ -295,7 +295,7 @@ body {
 .footer {
   margin-top: -6.5rem;
   padding: 6rem 2rem 3rem;
-  background-color: #f7f7f7;
+  background-color: #f4f4f4;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -317,7 +317,7 @@ body {
   border-radius: 1.5rem;
 }
 .footer .icon.current {
-  background-color: #eee;
+  background-color: #ddd;
 }
 .footer .icon:not(:last-child) {
   margin-right: 5rem;
@@ -589,6 +589,6 @@ body {
     width: 55%;
   }
   .footer .icon img {
-    width: 2rem;
+    width: 1.6rem;
   }
 }
