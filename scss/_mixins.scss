@@ -1,0 +1,22 @@
+@use "./variables" as *;
+
+@mixin flex($justify-content: space-between, $align-items: center) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+@mixin equal-width-n-height($width) {
+  width: $width;
+  height: $width;
+}
+
+%nth-child-bg {
+  &:nth-child(odd) {
+    background-color: $dark-bg;
+  }
+
+  &:nth-child(even) {
+    background-color: $light-bg;
+  }
+}

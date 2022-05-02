@@ -1,47 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
-
-$number-of-slides: 3;
-$dark-bg: #f7f7f7;
-$light-bg: #fdfdfd;
-
-*,
-*::before,
-*::after {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-html {
-  overflow-x: hidden;
-}
-
-img {
-  width: 100%;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  line-height: 1.3;
-}
-
-ul {
-  list-style-type: none;
-}
-
-button {
-  border: 0;
-  background: none;
-  cursor: pointer;
-}
-
-body {
-  min-height: 100vh;
-  overflow-x: hidden;
-  font-family: "Poppins", sans-serif;
-}
+@use "./variables" as *;
+@use "./mixins" as *;
+@use "./utilities" as *;
 
 .container {
   width: 98%;
@@ -53,11 +12,10 @@ body {
   $text-width: 11.5rem;
 
   position: relative;
-  display: flex;
-  justify-content: center;
+  @include flex(center, initial);
   width: 100%;
-  overflow: hidden;
   padding-bottom: 6.5rem;
+  overflow: hidden;
 
   &__img-group {
     position: relative;
@@ -69,11 +27,11 @@ body {
       left: -40%;
       width: 55rem;
       height: 100%;
-      transition: all 0.6s ease-in-out;
+      transition: all $transition-time ease-in-out;
       z-index: 3;
 
       path {
-        transition: all 0.6s ease-in-out;
+        transition: all $transition-time ease-in-out;
       }
     }
 
@@ -88,18 +46,19 @@ body {
       border-radius: 50%;
       z-index: 4;
       transform-origin: center;
-      transition: all 0.8s cubic-bezier(0, 0.08, 0.34, 1.22);
+      transition: all calc($transition-time + 0.2s)
+        cubic-bezier(0, 0.08, 0.34, 1.22);
       pointer-events: none;
 
       .image {
         position: absolute;
         width: 30.5rem;
-        transition: all 0.6s ease-in-out;
+        transition: all $transition-time ease-in-out;
         opacity: 0;
 
         .main-img {
           width: 100%;
-          transition: all 0.6s ease-in-out;
+          transition: all $transition-time ease-in-out;
         }
 
         .misc-img {
@@ -141,12 +100,6 @@ body {
       }
     }
 
-    @keyframes rotate {
-      100% {
-        transform: rotate(1turn);
-      }
-    }
-
     &--text {
       position: absolute;
       top: 20%;
@@ -159,10 +112,9 @@ body {
     }
 
     &--text-track {
-      display: flex;
-      align-items: center;
+      @include flex();
       width: calc($text-width * 3);
-      transition: all 0.6s ease-in-out;
+      transition: all $transition-time ease-in-out;
       pointer-events: none;
 
       h1 {
@@ -187,14 +139,7 @@ body {
       div {
         height: 4rem;
         width: 100%;
-
-        &:nth-child(odd) {
-          background-color: $dark-bg;
-        }
-
-        &:nth-child(even) {
-          background-color: $light-bg;
-        }
+        @extend %nth-child-bg;
       }
     }
 
@@ -205,8 +150,7 @@ body {
     }
 
     &--slider-group {
-      display: flex;
-      justify-content: space-between;
+      @include flex();
       overflow-x: hidden;
     }
 
@@ -215,12 +159,11 @@ body {
     }
 
     &--track {
+      @include flex();
       width: calc(100% * $number-of-slides);
-      display: flex;
-      align-items: center;
       margin-top: 1.5rem;
       overflow-x: hidden;
-      transition: all 0.6s ease-in-out;
+      transition: all $transition-time ease-in-out;
     }
 
     &--slide {
@@ -229,33 +172,22 @@ body {
 
       .slide-items {
         position: relative;
+        @include flex();
         width: 100%;
-        display: flex;
         height: 4rem;
-        justify-content: space-between;
-        align-items: center;
         padding-left: 0.6rem;
-
-        &:nth-child(odd) {
-          background-color: $dark-bg;
-        }
-
-        &:nth-child(even) {
-          background-color: $light-bg;
-        }
+        @extend %nth-child-bg;
 
         .product-name {
           width: 30%;
         }
 
         .product-img {
-          width: 3rem;
-          height: 3rem;
+          @include equal-width-n-height(3rem);
           margin-right: 4rem;
 
           img {
-            width: 100%;
-            height: 100%;
+            @include equal-width-n-height(100%);
             object-fit: cover;
           }
         }
@@ -274,19 +206,10 @@ body {
         margin-top: 1.5rem;
 
         .icon {
+          @include flex(center);
           width: 100%;
-          display: flex;
           height: 4rem;
-          justify-content: center;
-          align-items: center;
-
-          &:nth-child(odd) {
-            background-color: $dark-bg;
-          }
-
-          &:nth-child(even) {
-            background-color: $light-bg;
-          }
+          @extend %nth-child-bg;
         }
       }
     }
@@ -297,19 +220,17 @@ body {
   position: absolute;
   left: 50%;
   bottom: 0%;
-  transform: translateX(-40%) translateY(-1.5rem);
-  display: inline-flex;
-  align-items: center;
-  background-color: #fff;
-  border-radius: 2rem;
+  @include flex();
+  background-color: $white;
   padding: 0.5rem 1rem;
+  border-radius: 2rem;
   z-index: 5;
+  transform: translateX(-40%) translateY(-1.5rem);
   box-shadow: 6px 10px 18px rgba(0, 0, 0, 0.04);
 
   .nav-btn {
-    background: #555;
-    width: 3.3rem;
-    height: 3.3rem;
+    background: $nav-btn-bg;
+    @include equal-width-n-height(3.3rem);
     border-radius: 0.8rem;
 
     img {
@@ -320,8 +241,7 @@ body {
   .misc-btn-group {
     margin: 0 1.6rem;
     padding: 0 1.6rem;
-    display: flex;
-    align-items: center;
+    @include flex();
     border: 1px solid transparent;
     border-right-color: #ddd;
     border-left-color: #ddd;
@@ -353,23 +273,20 @@ body {
   margin-top: -6.5rem;
   padding: 6rem 2rem 3rem;
   background-color: $dark-bg;
-  display: flex;
-  justify-content: space-between;
+  @include flex();
   width: 100%;
 
   .icons-group {
-    display: flex;
-    align-items: center;
+    @include flex();
   }
 
   .icon {
     position: relative;
     display: grid;
     place-items: center;
-    width: 4rem;
-    height: 4rem;
+    @include equal-width-n-height(4rem);
     padding: 0.5rem;
-    transition: all 0.6s ease;
+    transition: all $transition-time ease;
     border-radius: 1.5rem;
 
     &.current {
@@ -399,7 +316,7 @@ body {
   }
 }
 
-// 1325px
+// less than 1325px
 @media screen and (max-width: 82.8125rem) {
   .products {
     &__img-group {
@@ -439,7 +356,7 @@ body {
   }
 }
 
-// 1200px
+// less than 1200px
 @media screen and (max-width: 75rem) {
   .products {
     $text-width: 8.8rem;
@@ -491,7 +408,7 @@ body {
   }
 }
 
-// 1145px
+// less than 1145px
 @media screen and (max-width: 71.5625rem) {
   .products {
     &__img-group {
@@ -524,7 +441,7 @@ body {
   }
 }
 
-// 1050px
+// less than 1050px
 @media screen and (max-width: 65.625rem) {
   .container {
     width: 95%;
@@ -534,8 +451,7 @@ body {
     $text-width: 10.1rem;
 
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include flex(center);
 
     &__img-group {
       display: grid;
@@ -593,8 +509,7 @@ body {
           padding-left: 0.9rem;
 
           .product-img {
-            width: 2rem;
-            height: 2rem;
+            @include equal-width-n-height(2rem);
             margin-right: 4.5rem;
           }
         }
@@ -619,30 +534,20 @@ body {
 
   .footer {
     padding: 4rem 2rem 2rem;
-    background-color: $dark-bg;
 
     .icon {
-      width: 3.8rem;
-      height: 3.8rem;
-      padding: 0.1rem;
+      @include equal-width-n-height(3.5rem);
+      padding: 0.2rem;
     }
   }
 }
 
+// less than 700px
 @media screen and (max-width: 43.75rem) {
   .products {
     $text-width: 8.6rem;
 
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
     &__img-group {
-      display: grid;
-      place-items: center;
-      width: 100%;
-      height: 530px;
-
       &--svg {
         top: -25%;
         width: 35rem;
@@ -695,12 +600,9 @@ body {
 
       &--slide {
         .slide-items {
-          height: 4.5rem;
           padding-left: 0.5rem;
 
           .product-img {
-            width: 2rem;
-            height: 2rem;
             margin-right: 1.5rem;
           }
         }
@@ -708,24 +610,15 @@ body {
 
       &--number {
         width: 20%;
-
-        .add__icon-group {
-          .icon {
-            height: 4.5rem;
-          }
-        }
       }
     }
   }
 
   .buttons-container {
-    position: relative;
     margin-top: 3rem;
-    transform: translateX(0%) translateY(0%);
 
     .nav-btn {
-      width: 3.1rem;
-      height: 3.1rem;
+      @include equal-width-n-height(3.1rem);
 
       img {
         width: 47%;
@@ -769,7 +662,7 @@ body {
       }
 
       img {
-        width: 2.5rem;
+        width: 2rem;
       }
     }
   }
