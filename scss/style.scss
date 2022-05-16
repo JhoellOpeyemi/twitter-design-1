@@ -44,7 +44,7 @@
       width: 54rem;
       height: 100%;
       border-radius: 50%;
-      z-index: 4;
+      z-index: 5;
       transform-origin: center;
       transition: all calc($transition-time + 0.2s)
         cubic-bezier(0, 0.08, 0.34, 1.22);
@@ -63,11 +63,9 @@
 
         .misc-img {
           position: absolute;
-          bottom: 10%;
-          left: 10%;
           width: 8rem;
-          transform: rotate(40deg);
-          filter: blur(5px);
+          filter: blur(3px);
+          animation: bounce 3s ease infinite alternate-reverse;
         }
 
         @for $i from 1 through $number-of-slides {
@@ -83,20 +81,31 @@
         opacity: 1;
       }
 
-      .image:nth-child(1) {
-        transform: translate(14rem, 7.5rem);
-      }
+      .sofa-cake {
+        transform: translate(15rem, 9rem);
 
-      .image:nth-child(2) {
-        transform: translate(-5rem, -18rem);
-
-        .main-img {
-          width: 130%;
+        .misc-img {
+          left: 30%;
+          top: -40%;
+          transform: rotate(70deg);
         }
       }
 
-      .image:nth-child(3) {
+      .blob-sofa {
+        transform: translate(2rem, -20rem);
+      }
+
+      .herb-pods {
         transform: translate(-15rem, 7.5rem);
+      }
+    }
+
+    @keyframes bounce {
+      0% {
+        transform: translateY(0%) rotate(70deg);
+      }
+      100% {
+        transform: translateY(20%) rotate(70deg);
       }
     }
 
@@ -375,19 +384,15 @@
           width: 24rem;
         }
 
-        .image:nth-child(1) {
+        .sofa-cake {
           transform: translate(12rem, 7.5rem);
         }
 
-        .image:nth-child(2) {
-          transform: translate(-4rem, -12rem);
-
-          .main-img {
-            width: 125%;
-          }
+        .blob-sofa {
+          transform: translate(3rem, -18rem);
         }
 
-        .image:nth-child(3) {
+        .herb-pods {
           transform: translate(-12rem, 7.5rem);
         }
       }
@@ -425,15 +430,20 @@
           width: 20rem;
         }
 
-        .image:nth-child(1) {
+        .sofa-cake {
           transform: translate(9.5rem, 8rem);
+
+          .misc-img {
+            left: 40%;
+            top: -55%;
+          }
         }
 
-        .image:nth-child(2) {
-          transform: translate(0rem, -13rem);
+        .blob-sofa {
+          transform: translate(3rem, -15rem);
         }
 
-        .image:nth-child(3) {
+        .herb-pods {
           transform: translate(-10rem, 7rem);
         }
       }
@@ -476,6 +486,10 @@
 
         .image {
           width: 24rem;
+        }
+
+        .sofa-cake {
+          transform: translate(9rem, 12rem);
         }
       }
 
@@ -559,17 +573,26 @@
 
         .image {
           width: 20rem;
+
+          .misc-img {
+            width: 6.5rem;
+          }
         }
 
-        .image:nth-child(1) {
+        .sofa-cake {
           transform: translate(0rem, 12rem);
+
+          .misc-img {
+            left: 30%;
+            top: 85%;
+          }
         }
 
-        .image:nth-child(2) {
-          transform: translate(9rem, -7rem);
+        .blob-sofa {
+          transform: translate(12rem, -8rem);
         }
 
-        .image:nth-child(3) {
+        .herb-pods {
           transform: translate(-12rem, -8rem);
         }
       }
